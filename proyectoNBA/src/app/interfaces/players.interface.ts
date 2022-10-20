@@ -2,7 +2,7 @@
 
 export interface PlayersResponse {
     _internal: Internal;
-    league:    League;
+    league:    Player;
 }
 
 export interface Internal {
@@ -17,7 +17,7 @@ export interface Internal {
     endToEndTimeMillis:      string;
 }
 
-export interface League {
+export interface Player {
     standard:   Sacramento[];
     africa:     any[];
     sacramento: Sacramento[];
