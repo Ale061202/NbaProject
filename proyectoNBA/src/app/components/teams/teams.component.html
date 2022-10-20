@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p *ngFor="let item of equiposLiga">{{item.fullName}}</p>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Equipos</title>
+  </head>
+  <body>
+    <!-- 3D Slideshow Section -->
+    <section id="slideshow">
+      <div class="entire-content">
+        <div class="content-carrousel">
+          <figure class="shadow" *ngFor="let team of equiposMarcador">
+            <img
+              [src]="'https://cdn.nba.com/logos/nba/'+team.teamId+'/global/L/logo.svg'"
+            />
+          </figure>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
