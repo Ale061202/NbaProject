@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Africa } from 'src/app/interfaces/team-list.interface';
+import { EMPTY, empty } from 'rxjs';
+import { Africa, ConfName } from 'src/app/interfaces/team-list.interface';
 import { ListadoEquiposService } from 'src/app/services/listado-equipos.service';
 
 @Component({
@@ -9,28 +10,38 @@ import { ListadoEquiposService } from 'src/app/services/listado-equipos.service'
 })
 export class TeamsComponent implements OnInit {
 
-  equiposLiga : Africa[] = []
-  equiposMarcador : Africa[] = []
+  equiposLiga: Africa[] = []
+  equiposMarcador: Africa[] = []
+  randoms: number[] = []
 
   constructor(private teamService: ListadoEquiposService) { }
 
   ngOnInit(): void {
-    this.teamService.getPeople(2022).subscribe((resp) => {
+    this.teamService.getTeams(2022).subscribe((resp) => {
       this.equiposLiga = resp.league.standard
-    
+
+      this.equiposMarcador.length = 9
+
       for (let i = 0; i < 9; i++) {
-        let rd = Math.trunc(Math.random() * (this.equiposLiga.length - 1) + 1)
-        if (i==0) {
-          this.equiposMarcador[i] = resp.league.standard[rd]
+        let rd = Math.trunc(Math.random()*(this.equiposLiga.length - 1) + 1)
+        if (!this.randoms.includes(rd)) {
+          this.randoms[i]=rd
         }else{
-          for (let j = 0; j < this.equiposMarcador.length; j++) {
-            if (resp.league.standard[rd].teamId == this.equiposMarcador[j].teamId) {
-            }else{
-              this.equiposMarcador[i] = resp.league.standard[rd]
-            }
-          }
+          i-=1
         }
       }
+
+      console.log(this.randoms)
+      for (let i = 0; i < this.randoms.length; i++) {
+        this.equiposMarcador[i]=this.equiposLiga[this.randoms[i]]
+      }
     })
+  }
+
+  getConference(equipo : Africa){
+    if (equipo.confName == 'East') {
+      return true
+    }
+    return false
   }
 }

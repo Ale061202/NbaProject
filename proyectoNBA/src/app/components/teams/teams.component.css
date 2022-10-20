@@ -16,10 +16,62 @@ body {
   padding: 0;
 }
 
+.marcador{
+  width: 750px;
+  height: 450px;
+  border: 25px ridge gray;
+  margin: auto;
+  background-image: url(https://img.freepik.com/vector-premium/textura-tv-led-pantalla-digital-videowall-azul-monitor-lcd-puntos-pantalla-pixeles-efecto-diodo-electronico_171739-449.jpg);
+  background-size: cover;
+}
+
+.columna{
+  height: 35px;
+  width: 60px;
+  margin: auto;
+  border: 25px ridge gray;
+  background: gray;
+  display: flex;
+  justify-content: center;
+}
+
+.columna img{
+  width: 35px;
+}
+
+.leyenda{
+  width: 100%;
+  height: 75px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: rgb(48, 48, 48);
+  margin-top: -75px;
+  color: white;
+  display: flex;
+  border-top: 2px solid white;
+}
+
+.soporte{
+  width: 100%;
+}
+
+#eBox{
+  width: 15px;
+  height: 15px;
+  background: rgb(255, 255, 79);
+  margin-left: 10px;
+}
+
+#wBox{
+  width: 15px;
+  height: 15px;
+  background: rgb(255, 37, 113);
+  margin-left: 10px;
+}
+
 #slideshow {
   margin: 0 auto;
-  padding-top: 50px;
-  height: 600px;
+  height: 100%;
   width: 100%;
   box-sizing: border-box;
 }
@@ -124,10 +176,12 @@ body {
   transform: rotateY(360deg) translateZ(300px);
 }
 
-.shadow {
-  position: absolute;
-  box-shadow: 0px 0px 20px 0px #000;
-  border-radius: 1px;
+.este {
+  background: rgb(255, 255, 79);
+}
+
+.oeste { 
+  background: rgb(255, 37, 113);
 }
 
 .content-carrousel img {

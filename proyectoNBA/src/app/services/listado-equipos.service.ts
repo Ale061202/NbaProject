@@ -12,7 +12,7 @@ export class ListadoEquiposService {
 
   constructor(private http: HttpClient) { }
 
-  public getPeople(anho : number) : Observable <TeamResponse>{
+  public getTeams(anho : number) : Observable <TeamResponse>{
     return this.http.get<TeamResponse>(`${API_BASE_URL}/${anho}/teams.json`)
   }
 }

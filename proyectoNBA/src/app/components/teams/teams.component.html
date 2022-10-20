@@ -7,17 +7,33 @@
     <title>Equipos</title>
   </head>
   <body>
-    <!-- 3D Slideshow Section -->
-    <section id="slideshow">
-      <div class="entire-content">
-        <div class="content-carrousel">
-          <figure class="shadow" *ngFor="let team of equiposMarcador">
-            <img
-              [src]="'https://cdn.nba.com/logos/nba/'+team.teamId+'/global/L/logo.svg'"
-            />
-          </figure>
+    <div class="soporte" fxLayout="column" fxLayoutAlign="space-around center">
+      <div class="columna">
+        <a href="https://iplogger.com/2gNss3" target="_blank">
+          <img src="https://alicante.salesianos.edu/wp-content/uploads/2017/08/logo_salesianos.png" alt="">
+        </a>
+      </div>
+      <div class="marcador" fxLayout="column" fxLayoutAlign="space-around center">
+        <section id="slideshow">
+          <div class="entire-content">
+            <div class="content-carrousel">
+              <figure [class]="getConference(team)?'este' : 'oeste'" *ngFor="let team of equiposMarcador">
+                <img [src]="'https://cdn.nba.com/logos/nba/'+team.teamId+'/global/L/logo.svg'"/>
+              </figure>
+            </div>
+          </div>
+        </section>
+        <div class="leyenda" fxLayout="row" fxLayoutAlign="space-around center">
+          <div fxLayout="row" fxLayoutAlign="space-around center">
+            <p>Conferencia Este</p>
+            <div id="eBox"></div>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="space-around center">
+            <p>Conferencia Oeste</p>
+            <div id="wBox"></div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
   </body>
 </html>
