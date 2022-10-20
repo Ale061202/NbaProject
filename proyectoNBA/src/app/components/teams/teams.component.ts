@@ -13,10 +13,12 @@ export class TeamsComponent implements OnInit {
   equiposLiga: Africa[] = []
   equiposMarcador: Africa[] = []
   randoms: number[] = []
+  anhosVisualizar: number[] = [2022, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010]
 
   constructor(private teamService: ListadoEquiposService) { }
 
   ngOnInit(): void {
+    
     this.teamService.getTeams(2022).subscribe((resp) => {
       this.equiposLiga = resp.league.standard
 
@@ -31,7 +33,6 @@ export class TeamsComponent implements OnInit {
         }
       }
 
-      console.log(this.randoms)
       for (let i = 0; i < this.randoms.length; i++) {
         this.equiposMarcador[i]=this.equiposLiga[this.randoms[i]]
       }
@@ -44,4 +45,5 @@ export class TeamsComponent implements OnInit {
     }
     return false
   }
+
 }

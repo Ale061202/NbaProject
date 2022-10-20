@@ -1,39 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Equipos</title>
-  </head>
-  <body>
-    <div class="soporte" fxLayout="column" fxLayoutAlign="space-around center">
-      <div class="columna">
-        <a href="https://iplogger.com/2gNss3" target="_blank">
-          <img src="https://alicante.salesianos.edu/wp-content/uploads/2017/08/logo_salesianos.png" alt="">
-        </a>
-      </div>
-      <div class="marcador" fxLayout="column" fxLayoutAlign="space-around center">
-        <section id="slideshow">
-          <div class="entire-content">
-            <div class="content-carrousel">
-              <figure [class]="getConference(team)?'este' : 'oeste'" *ngFor="let team of equiposMarcador">
-                <img [src]="'https://cdn.nba.com/logos/nba/'+team.teamId+'/global/L/logo.svg'"/>
-              </figure>
-            </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Equipos</title>
+</head>
+
+<body>
+  <div class="soporte" fxLayout="column" fxLayoutAlign="space-around center">
+    <div class="columna">
+      <div class="amarre"></div>
+      <div class="amarre"></div>
+    </div>
+    <div class="marcador" fxLayout="column" fxLayoutAlign="space-around center">
+      <section id="slideshow">
+        <div class="entire-content">
+          <div class="content-carrousel">
+            <figure [class]="getConference(team)?'este' : 'oeste'" *ngFor="let team of equiposMarcador">
+              <img [src]="'https://cdn.nba.com/logos/nba/'+team.teamId+'/global/L/logo.svg'" />
+            </figure>
           </div>
-        </section>
-        <div class="leyenda" fxLayout="row" fxLayoutAlign="space-around center">
-          <div fxLayout="row" fxLayoutAlign="space-around center">
-            <p>Conferencia Este</p>
-            <div id="eBox"></div>
-          </div>
-          <div fxLayout="row" fxLayoutAlign="space-around center">
-            <p>Conferencia Oeste</p>
-            <div id="wBox"></div>
-          </div>
+        </div>
+      </section>
+      <div class="leyenda" fxLayout="row" fxLayoutAlign="space-around center">
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+          <p>Conferencia Este</p>
+          <div id="eBox"></div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+          <p>Conferencia Oeste</p>
+          <div id="wBox"></div>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+  <div id="separador">
+    <hr>
+  </div>
+  <div class="container" fxLayout="row" fxLayoutAlign="space-around center">
+    <mat-tab-group class="paginacion">
+      <mat-tab label="Años">
+        <div class="contenido">
+          <p>
+            Aqui podras consultar el el listado de todos los equipos que han pasado por la NBA en los ultimos Años. <br>
+            <br>
+            Selecciona en el siguiente desplegable un año para mostras los equipos de la respectiva temporada: <br>
+            <br>
+          </p>
+          <mat-form-field appearance="fill">
+            <mat-label>Año de la temporada</mat-label>
+            <mat-select name="food">
+              <mat-option *ngFor="let anho of anhosVisualizar" [value]="anho">
+                {{anho}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br>
+        </div>
+      </mat-tab>
+      <mat-tab label="Second"> Content 2 </mat-tab>
+      <mat-tab label="Third"> Content 3 </mat-tab>
+    </mat-tab-group>
+  </div>
+</body>
+
 </html>
