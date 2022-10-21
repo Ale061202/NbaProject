@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { PlayersListService } from 'src/app/services/players-list.service';
 
 @Component({
   selector: 'app-detail-players',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailPlayersComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,private playerService: PlayersListService) { }
 
   ngOnInit(): void {
+    
   }
 
 }

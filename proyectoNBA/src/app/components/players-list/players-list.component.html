@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Players</title>
-</head>
-<body>
-    <mat-card class="card" *ngFor="let player of playerList">
+  </head>
+  <body>
+      <mat-card class="card" *ngFor="let player of playerList">
         <mat-card-header>
-            <mat-card-title>{{player.firstName}} {{player.lastName}}</mat-card-title>
-            <mat-card-subtitle> Posición: {{player.pos}}</mat-card-subtitle>
+          <mat-card-title
+            >{{ player.firstName }} {{ player.lastName }}</mat-card-title
+          >
+          <mat-card-subtitle> Posición: {{ player.pos }}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image [ngIf]="getPhotoUrl(player)" alt="NBA player">
+        <img mat-card-image [src]="getPhotoUrl(player)" alt="NBA player" />
         <mat-card-content>
-            <p>Nº: {{player.jersey}}</p>
-            <p>Altura: {{player.heightMeters}} m</p>
-            <p>Peso: {{player.weightKilograms}} kg</p>
+          <p>Nº: {{ player.jersey }}</p>
+          <p>Altura: {{ player.heightMeters }} m</p>
+          <p>Peso: {{ player.weightKilograms }} kg</p>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-button>Detalles</button>
+          <button mat-button>Detalles</button>
         </mat-card-actions>
-    </mat-card>
-</body>
+      </mat-card>
+      </body>
 </html>

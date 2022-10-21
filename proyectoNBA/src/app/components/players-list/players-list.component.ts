@@ -23,11 +23,4 @@ export class PlayersListComponent implements OnInit {
   getPhotoUrl(player: Sacramento){
     return `https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${player.personId}.png`
   }
-
-  getDefaultImage(){
-    return `https://www.designbust.com/download/1053/png/nba_logos_png_transparent256.png`
-  }
-
-  
-
 }
