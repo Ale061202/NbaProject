@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  appiBaseUrl: 'https://data.nba.net/data/10s/prod/v1/'
 };
 
 /*
