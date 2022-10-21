@@ -9,6 +9,7 @@ const routes: Routes = [
   {path: 'detail/:id', component: DetailPlayersComponent, pathMatch: 'full'},
   {path: 'teams', component: TeamsComponent  },
   {path: '', redirectTo: '/teams', pathMatch: 'full'}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
