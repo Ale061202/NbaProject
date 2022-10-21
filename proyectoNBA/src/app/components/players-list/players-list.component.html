@@ -7,10 +7,19 @@
     <title>Players</title>
 </head>
 <body>
-    <mat-card>
+    <mat-card *ngFor="let player of playerList">
+        <mat-card-header>
+            <mat-card-title>{{player.firstName}} {{player.lastName}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="getPhotoUrl(player)" alt="NBA player">
         <mat-card-content>
-
+            <p>Nº: {{player.jersey}}</p>
+            <p>Altura: {{player.heightMeters}} m</p>
+            <p>Peso: {{player.weightKilograms}} kg</p>
         </mat-card-content>
+        <mat-card-actions>
+            <button mat-button>Detalles</button>
+        </mat-card-actions>
     </mat-card>
 </body>
 </html>

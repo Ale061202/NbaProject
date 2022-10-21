@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Player } from 'src/app/interfaces/players.interface';
+import { ActivatedRoute } from '@angular/router';
+import { Sacramento } from 'src/app/interfaces/players.interface';
 import { PlayersListService } from 'src/app/services/players-list.service';
 
 @Component({
@@ -9,11 +10,23 @@ import { PlayersListService } from 'src/app/services/players-list.service';
 })
 export class PlayersListComponent implements OnInit {
 
-  playerList: Player[] = [];
+  playerList: Sacramento[] = [];
 
-  constructor(private playerService: PlayersListService) { }
+  constructor(private route: ActivatedRoute,private playerService: PlayersListService) { }
 
   ngOnInit(): void {
   }
+
+  getPlayers(year: number){
+    this.playerService.playersList(year).subscribe(resp => {
+      this.playerList = resp.league.standard;
+    })
+  }
+
+  getPhotoUrl(player: Sacramento){
+    return `https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${player.personId}.png`
+  }
+
+  
 
 }
