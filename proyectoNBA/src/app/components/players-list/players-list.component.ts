@@ -12,19 +12,20 @@ export class PlayersListComponent implements OnInit {
 
   playerList: Sacramento[] = [];
 
-  constructor(private route: ActivatedRoute,private playerService: PlayersListService) { }
+  constructor(private playerService: PlayersListService) { }
 
   ngOnInit(): void {
-  }
-
-  getPlayers(year: number){
-    this.playerService.playersList(year).subscribe(resp => {
+    this.playerService.playersList(2022).subscribe(resp => {
       this.playerList = resp.league.standard;
     })
   }
 
   getPhotoUrl(player: Sacramento){
     return `https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${player.personId}.png`
+  }
+
+  getDefaultImage(){
+    return `https://www.designbust.com/download/1053/png/nba_logos_png_transparent256.png`
   }
 
   
