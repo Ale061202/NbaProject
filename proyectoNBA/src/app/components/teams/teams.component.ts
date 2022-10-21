@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EMPTY, empty } from 'rxjs';
-import { Africa, ConfName } from 'src/app/interfaces/team-list.interface';
+import { Africa, ConfName, DivName } from 'src/app/interfaces/team-list.interface';
 import { ListadoEquiposService } from 'src/app/services/listado-equipos.service';
 
 @Component({
@@ -10,17 +10,23 @@ import { ListadoEquiposService } from 'src/app/services/listado-equipos.service'
 })
 export class TeamsComponent implements OnInit {
 
-  equiposLiga: Africa[] = []
-  equiposMarcador: Africa[] = []
+  equiposLiga: Africa[] = [];
+  equiposMarcador: Africa[] = [];
   randoms: number[] = []
-  anhosVisualizar: number[] = [2022, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010]
+  anhosVisualizar: number[] = [2022, 2020, 2019, 2018, 2017, 2016]
+  empty = DivName.Empty;
+  anho !: number
 
   constructor(private teamService: ListadoEquiposService) { }
 
   ngOnInit(): void {
-    
-    this.teamService.getTeams(2022).subscribe((resp) => {
-      this.equiposLiga = resp.league.standard
+    this.getTeamsYear(2022)
+  }
+
+  getTeamsYear(year : number){
+    this.teamService.getTeams(year).subscribe((resp) => {
+      this.equiposLiga = resp.league.standard;
+      //this.equiposLiga = resp.league.standard.filter(e => e.divName == DivName.Empty);
 
       this.equiposMarcador.length = 9
 
@@ -29,7 +35,7 @@ export class TeamsComponent implements OnInit {
         if (!this.randoms.includes(rd)) {
           this.randoms[i]=rd
         }else{
-          i-=1
+          i-=1;
         }
       }
 
@@ -37,6 +43,8 @@ export class TeamsComponent implements OnInit {
         this.equiposMarcador[i]=this.equiposLiga[this.randoms[i]]
       }
     })
+
+    this.anho=year
   }
 
   getConference(equipo : Africa){
@@ -45,5 +53,6 @@ export class TeamsComponent implements OnInit {
     }
     return false
   }
+
 
 }
