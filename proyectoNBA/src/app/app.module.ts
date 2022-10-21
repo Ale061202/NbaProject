@@ -8,13 +8,15 @@ import { HttpClientModule } from "@angular/common/http";
 import { TeamsComponent } from './components/teams/teams.component';
 import { PlayersListComponent } from './components/players-list/players-list.component';
 import { MaterialImportsModule } from './modules/material-imports.module';
+import { DetailPlayersComponent } from './components/detail-players/detail-players.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
     AppComponent,
+    PlayersListComponent,
+    DetailPlayersComponent
     TeamsComponent,
-    PlayersListComponent
   ],
   imports: [
     BrowserModule,
