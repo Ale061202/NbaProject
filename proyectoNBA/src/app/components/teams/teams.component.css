@@ -1,0 +1,206 @@
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-image: url(https://i.pinimg.com/originals/5c/fd/e6/5cfde610601fa99c20a454a3ecda48e5.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* 3D Slideshow */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.marcador{
+  width: 750px;
+  height: 450px;
+  border: 25px ridge gray;
+  margin: auto;
+  background-image: url(https://img.freepik.com/vector-premium/textura-tv-led-pantalla-digital-videowall-azul-monitor-lcd-puntos-pantalla-pixeles-efecto-diodo-electronico_171739-449.jpg);
+  background-size: cover;
+}
+
+.columna{
+  height: 35px;
+  width: 60px;
+  margin: auto;
+  border: 25px ridge gray;
+  background: gray;
+  display: flex;
+  justify-content: center;
+}
+
+.columna img{
+  width: 35px;
+}
+
+.leyenda{
+  width: 100%;
+  height: 75px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: rgb(48, 48, 48);
+  margin-top: -75px;
+  color: white;
+  display: flex;
+  border-top: 2px solid white;
+}
+
+.soporte{
+  width: 100%;
+}
+
+#eBox{
+  width: 15px;
+  height: 15px;
+  background: rgb(255, 255, 79);
+  margin-left: 10px;
+}
+
+#wBox{
+  width: 15px;
+  height: 15px;
+  background: rgb(255, 37, 113);
+  margin-left: 10px;
+}
+
+#slideshow {
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.slideshow-title {
+  font-family: "Allerta Stencil";
+  font-size: 62px;
+  color: #fff;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 25%;
+  letter-spacing: 3px;
+  font-weight: 300;
+}
+
+.sub-heading {
+  padding-top: 50px;
+  font-size: 18px;
+}
+.sub-heading-two {
+  font-size: 15px;
+}
+.sub-heading-three {
+  font-size: 13px;
+}
+.sub-heading-four {
+  font-size: 11px;
+}
+.sub-heading-five {
+  font-size: 9px;
+}
+.sub-heading-six {
+  font-size: 7px;
+}
+.sub-heading-seven {
+  font-size: 5px;
+}
+.sub-heading-eight {
+  font-size: 3px;
+}
+.sub-heading-nine {
+  font-size: 1px;
+}
+
+.entire-content {
+  margin: auto;
+  width: 190px;
+  perspective: 1000px;
+  position: relative;
+  padding-top: 80px;
+}
+
+.content-carrousel {
+  width: 100%;
+  position: absolute;
+  float: right;
+  animation: rotar 35s infinite linear;
+  transform-style: preserve-3d;
+}
+
+.content-carrousel:hover {
+  animation-play-state: paused;
+  cursor: pointer;
+}
+
+.content-carrousel figure {
+  width: 100%;
+  height: 120px;
+  border: 1px solid #3b444b;
+  overflow: hidden;
+  position: absolute;
+}
+
+.content-carrousel figure:nth-child(1) {
+  transform: rotateY(0deg) translateZ(300px);
+}
+.content-carrousel figure:nth-child(2) {
+  transform: rotateY(40deg) translateZ(300px);
+}
+.content-carrousel figure:nth-child(3) {
+  transform: rotateY(80deg) translateZ(300px);
+}
+.content-carrousel figure:nth-child(4) {
+  transform: rotateY(120deg) translateZ(300px);
+}
+.content-carrousel figure:nth-child(5) {
+  transform: rotateY(160deg) translateZ(300px);
+}
+.content-carrousel figure:nth-child(6) {
+  transform: rotateY(200deg) translateZ(300px);
+}
+.content-carrousel figure:nth-child(7) {
+  transform: rotateY(240deg) translateZ(300px);
+}
+.content-carrousel figure:nth-child(8) {
+  transform: rotateY(280deg) translateZ(300px);
+}
+.content-carrousel figure:nth-child(9) {
+  transform: rotateY(320deg) translateZ(300px);
+}
+.content-carrousel figure:nth-child(10) {
+  transform: rotateY(360deg) translateZ(300px);
+}
+
+.este {
+  background: rgb(255, 255, 79);
+}
+
+.oeste { 
+  background: rgb(255, 37, 113);
+}
+
+.content-carrousel img {
+  image-rendering: auto;
+  transition: all 300ms;
+  width: 100%;
+  height: 100%;
+}
+
+.content-carrousel img:hover {
+  transform: scale(1.2);
+  transition: all 300ms;
+}
+
+@keyframes rotar {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
