@@ -18,14 +18,14 @@ export interface Internal {
 }
 
 export interface Player {
-    standard:   Sacramento[];
+    standard:   Distintivos[];
     africa:     any[];
-    sacramento: Sacramento[];
-    vegas:      Sacramento[];
-    utah:       Sacramento[];
+    Distintivos: Distintivos[];
+    vegas:      Distintivos[];
+    utah:       Distintivos[];
 }
 
-export interface Sacramento {
+export interface Distintivos {
     firstName:             string;
     lastName:              string;
     temporaryDisplayName?: string;

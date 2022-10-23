@@ -19,7 +19,7 @@
         <div class="entire-content">
           <div class="content-carrousel">
             <figure [class]="getConference(team)?'este' : 'oeste'" *ngFor="let team of equiposMarcador">
-              <img [src]="'https://cdn.nba.com/logos/nba/'+team.teamId+'/global/L/logo.svg'" onerror="this.src='https://static.vecteezy.com/system/resources/previews/003/348/586/non_2x/error-404-with-the-cute-basketball-mascot-free-vector.jpg'"/>
+              <a href="" [routerLink]="'/team/details/'+anho+'/'+team.teamId" href=""><img [src]="'https://cdn.nba.com/logos/nba/'+team.teamId+'/global/L/logo.svg'" onerror="this.src='https://static.vecteezy.com/system/resources/previews/003/348/586/non_2x/error-404-with-the-cute-basketball-mascot-free-vector.jpg'"/></a>
             </figure>
           </div>
         </div>
@@ -76,8 +76,68 @@
           </div>
         </div>
       </mat-tab>
-      <mat-tab label="Second"> Content 2 </mat-tab>
-      <mat-tab label="Third"> Content 3 </mat-tab>
+      <mat-tab label="Pretemporada">
+        <div class="contenido">
+          <p>Los equipos de pretemporada de cada año se muestran en esta pestaña</p>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>Año de la temporada</mat-label>
+            <mat-select name="food">
+              <mat-option *ngFor="let anho of anhosVisualizar" [value]="anho" (click)="getTeamsYear(anho)">
+                {{anho}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br>
+          <div class="card-container" fxLayout="row wrap" fxLayoutAlign="space-around">
+            <div *ngFor="let item of equiposLiga">
+              <mat-card class="example-card" *ngIf="item.divName == ''">
+                <mat-card-title-group>
+                  <mat-card-title>{{item.fullName}}</mat-card-title>
+                  <mat-card-subtitle style="margin-top: 18px;">
+                    <a id="ver-detalles" [routerLink]="'/team/details/'+anho+'/'+item.teamId" href="">Ver detalles <div id="flecha-enlace">➤</div></a>
+                  </mat-card-subtitle>
+                  <img mat-card-sm-image [src]="'https://cdn.nba.com/logos/nba/'+item.teamId+'/global/L/logo.svg'" onerror="this.src='https://static.vecteezy.com/system/resources/previews/003/348/586/non_2x/error-404-with-the-cute-basketball-mascot-free-vector.jpg'">
+                </mat-card-title-group>
+                <mat-card-content>
+                  {{item.city}}
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="AllStar">
+        <div class="contenido">
+          <p>En esta pestaña podras encontrar los equipos del AllStar</p>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>Año de la temporada</mat-label>
+            <mat-select name="food">
+              <mat-option *ngFor="let anho of anhosVisualizar" [value]="anho" (click)="getTeamsYear(anho)">
+                {{anho}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br>
+          <div class="card-container" fxLayout="row wrap" fxLayoutAlign="space-around">
+            <div *ngFor="let item of equiposLiga">
+              <mat-card class="example-card" *ngIf="item.isAllStar">
+                <mat-card-title-group>
+                  <mat-card-title>{{item.fullName}}</mat-card-title>
+                  <mat-card-subtitle style="margin-top: 18px;">
+                    <a id="ver-detalles" [routerLink]="'/team/details/'+anho+'/'+item.teamId" href="">Ver detalles <div id="flecha-enlace">➤</div></a>
+                  </mat-card-subtitle>
+                  <img mat-card-sm-image [src]="'https://cdn.nba.com/logos/nba/'+item.teamId+'/global/L/logo.svg'" onerror="this.src='https://static.vecteezy.com/system/resources/previews/003/348/586/non_2x/error-404-with-the-cute-basketball-mascot-free-vector.jpg'">
+                </mat-card-title-group>
+                <mat-card-content>
+                  {{item.city}}
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
     </mat-tab-group>
   </div>
 </body>

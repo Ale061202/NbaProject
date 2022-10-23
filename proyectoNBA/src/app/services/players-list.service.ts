@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import {
   Player,
   PlayersResponse,
-  Sacramento,
+  Distintivos,
 } from '../interfaces/players.interface';
 
 @Injectable({
@@ -14,7 +14,11 @@ import {
 export class PlayersListService {
   constructor(private http: HttpClient) {}
 
-  playersList(year: string, player: Sacramento): Observable<PlayersResponse> {
+  getPlayersList(anho:number):Observable<PlayersResponse>{
+    return this.http.get<PlayersResponse>(`${environment.appiBaseUrl}/${anho}/players.json`)
+  }
+
+  getPlayer(year: string, player: Distintivos): Observable<PlayersResponse> {
     let id = player.personId;
     return this.http.get<PlayersResponse>(
       `${environment.appiBaseUrl}/${year}/players.json/${id}`

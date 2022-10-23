@@ -232,6 +232,7 @@ body {
   padding: 35px;
   box-sizing: border-box;
   border-radius: 10px;
+  margin-bottom: 50px;
 }
 
 .contenido{
@@ -240,7 +241,8 @@ body {
 }
 
 .example-card {
-  width: 300px;
+  width: 315px;
+  height: 125px;
   margin: 0 10px 15px 10px;
 }
 

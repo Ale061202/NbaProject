@@ -1,7 +1,10 @@
+import { style } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Distintivos, Player } from 'src/app/interfaces/players.interface';
 import { Africa } from 'src/app/interfaces/team-list.interface';
 import { ListadoEquiposService } from 'src/app/services/listado-equipos.service';
+import { PlayersListService } from 'src/app/services/players-list.service';
 
 @Component({
   selector: 'app-team-details',
@@ -12,14 +15,23 @@ export class TeamDetailsComponent implements OnInit {
 
   equipos : Africa[] = []
   equipo : Africa = {} as Africa
+  jugadores : Distintivos[] = []
+  nombreApellido = ''
 
-  constructor(private serviceTeam: ListadoEquiposService, private router : Router) { }
+  constructor(private serviceTeam: ListadoEquiposService, private router : Router, private playerService : PlayersListService) { }
 
   ngOnInit(): void {
     this.serviceTeam.getTeams(this.getUrlYear()).subscribe((resp)=>{
       this.equipos = resp.league.standard
       this.getSelectedTeam()
     })
+
+    this.playerService.getPlayersList(this.getUrlYear()).subscribe((resp) => {
+      this.jugadores = resp.league.standard
+
+      console.log(this.jugadores)
+    })
+
     
   }
 
@@ -37,5 +49,12 @@ export class TeamDetailsComponent implements OnInit {
         this.equipo = this.equipos[i]
       }
     }
+  }
+
+  cambiarLogo(all : boolean){
+    if (all) {
+      return true
+    }
+    return false
   }
 }
