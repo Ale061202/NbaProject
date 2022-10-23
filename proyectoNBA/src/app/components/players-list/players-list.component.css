@@ -1,0 +1,21 @@
+.container{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mat-card {
+    margin-top: 50px;
+    float: left;
+}
+
+.mat-card-image {
+    margin: 0 auto;
+}
+
+.mat-card-actions{
+    text-align: left;
+}
+
+.years{
+    float: right;
+}

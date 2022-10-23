@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  appiBaseUrl: 'https://data.nba.net/data/10s/prod/v1/'
+  apiBaseUrl: 'https://data.nba.net/data/10s/prod/v1/'
 };
 
 /*
