@@ -15,7 +15,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   declarations: [
     AppComponent,
     PlayersListComponent,
-    DetailPlayersComponent
+    DetailPlayersComponent,
     TeamsComponent,
   ],
   imports: [
@@ -24,7 +24,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialImportsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
