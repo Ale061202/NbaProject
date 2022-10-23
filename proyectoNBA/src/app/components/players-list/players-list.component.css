@@ -1,7 +1,21 @@
-.card{
-    max-width: 300px;
-    max-height: 400px;
-    margin-bottom: 8px;
-    margin-top: 8px;
-    margin-left: 8px;
+.container{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mat-card {
+    margin-top: 50px;
+    float: left;
+}
+
+.mat-card-image {
+    margin: 0 auto;
+}
+
+.mat-card-actions{
+    text-align: left;
+}
+
+.years{
+    float: right;
 }

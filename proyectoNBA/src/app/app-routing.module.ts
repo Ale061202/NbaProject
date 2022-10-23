@@ -5,11 +5,11 @@ import { DetailPlayersComponent } from './components/detail-players/detail-playe
 import { PlayersListComponent } from './components/players-list/players-list.component';
 
 const routes: Routes = [
-  {path: 'players', component: PlayersListComponent, pathMatch: 'full'},
-  {path: 'detail/:id', component: DetailPlayersComponent, pathMatch: 'full'},
+  {path: 'players', component: PlayersListComponent},
+  {path: 'detail/:id/:year', component: DetailPlayersComponent},
   {path: 'teams', component: TeamsComponent  },
-  {path: '', redirectTo: '/teams', pathMatch: 'full'}
-
+  {path: '', redirectTo: '/players', pathMatch: 'full'}
+]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
