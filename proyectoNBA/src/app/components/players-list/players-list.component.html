@@ -7,11 +7,27 @@
     <title>Players</title>
   </head>
   <body>
-    <mat-form-field class="yearsSearch">
+    <mat-form-field class="options">
       <mat-label>Año</mat-label>
       <mat-select [(ngModel)]="year" (valueChange)="changeYear()">
           <mat-option *ngFor="let yearSelect of yearList" [value]="yearSelect">
               {{yearSelect}}
+          </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="options">
+      <mat-label>Países</mat-label>
+      <mat-select [(ngModel)]="filterCountryList" multiple (selectionChange)="findCountry()">
+          <mat-option *ngFor="let country of playerList" [value]="country">
+              {{country.country}}
+          </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="options">
+      <mat-label>Nombres</mat-label>
+      <mat-select [(ngModel)]="filterNameList" multiple (selectionChange)="findName()">
+          <mat-option *ngFor="let playerName of playerList" [value]="playerName">
+              {{playerName.country}}
           </mat-option>
       </mat-select>
     </mat-form-field>
