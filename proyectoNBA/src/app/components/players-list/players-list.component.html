@@ -27,7 +27,7 @@
       <mat-label>Nombres</mat-label>
       <mat-select [(ngModel)]="filterNameList" multiple (selectionChange)="findName()">
           <mat-option *ngFor="let playerName of playerList" [value]="playerName">
-              {{playerName.country}}
+              {{playerName.firstName}}
           </mat-option>
       </mat-select>
     </mat-form-field>
