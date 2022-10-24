@@ -28,8 +28,6 @@ export class TeamDetailsComponent implements OnInit {
 
     this.playerService.getPlayersList(this.getUrlYear()).subscribe((resp) => {
       this.jugadores = resp.league.standard
-
-      console.log(this.jugadores)
     })
 
     

@@ -12,6 +12,7 @@ import { DetailPlayersComponent } from './components/detail-players/detail-playe
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { TeamDetailsComponent } from './components/team-details/team-details.component';
+import { IndexPageComponent } from './components/index-page/index-page.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TeamDetailsComponent } from './components/team-details/team-details.com
     DetailPlayersComponent,
     TeamsComponent,
     PlayersListComponent,
-    TeamDetailsComponent
+    TeamDetailsComponent,
+    IndexPageComponent
   ],
   imports: [
     BrowserModule,
