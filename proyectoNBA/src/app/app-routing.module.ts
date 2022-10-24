@@ -13,8 +13,8 @@ const routes: Routes = [
   {path: 'teams', component: TeamsComponent  },
   {path: 'team/details/:year/:id', component: TeamDetailsComponent},
   {path: 'index', component: IndexPageComponent},
-  {path: '**', component: PageNotFoundComponent},
-  {path: '', redirectTo: '/index', pathMatch: 'full'}
+  {path: '', redirectTo: '/index', pathMatch: 'full'},
+  {path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({
