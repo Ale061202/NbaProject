@@ -13,6 +13,7 @@ export class IndexPageComponent implements OnInit {
   clasificacion: Team[] = [];
   equipos: Africa[] = [];
   equiposGuardados: Africa[] = [];
+  equipo : Africa = {} as Africa
 
   constructor(
     private statsService: StatsService,
@@ -30,15 +31,22 @@ export class IndexPageComponent implements OnInit {
     this.teamService.getTeams(2019).subscribe((resp) => {
       this.equipos = resp.league.standard;
 
-      debugger;
-
-      for (let it2 of this.clasificacion) {
-        for (let it of this.equipos) {
+      for (let it of this.clasificacion) {
+        for (let it2 of this.equipos) {
           if (it.teamId == it2.teamId) {
-            this.equiposGuardados.push(it);
+            this.equiposGuardados.push(it2);
           }
         }
       }
     });
+  }
+
+  nombreEquipos(eq : Team){
+    for (let i = 0; i < this.equipos.length; i++) {
+      if (this.equipos[i].teamId == eq.teamId) {
+        this.equipo = this.equipos[i]
+      }
+    }
+    return this.equipo
   }
 }
