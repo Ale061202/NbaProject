@@ -10,6 +10,7 @@ import { PlayersListComponent } from './components/players-list/players-list.com
 import { MaterialImportsModule } from './modules/material-imports.module';
 import { DetailPlayersComponent } from './components/detail-players/detail-players.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     HttpClientModule,
     MaterialImportsModule,
     FlexLayoutModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

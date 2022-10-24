@@ -17,8 +17,8 @@
             <div>
                 <img mat-card-image [src]="'https://cdn.nba.com/logos/nba/'+player.teamId+'/global/L/logo.svg'" style="width: 50px;" onerror="this.src='https://logospng.org/download/nba/logo-nba-256.png'" alt="Team logo">
                 <p>Nombre : {{player.temporaryDisplayName}}</p>
-                <p>Peso : {{player.weightKilograms}}</p>
-                <p>Altura : {{player.heightMeters}}</p>
+                <p>Peso : {{player.weightKilograms}} kg</p>
+                <p>Altura : {{player.heightMeters}} m</p>
                 <p>País : {{player.country}}</p>
             </div>
             <div>
@@ -78,7 +78,7 @@
 
             <table>
                 <tr>
-                    <th colspan="6">por partido</th>
+                    <th colspan="6">Media por partido</th>
                 </tr>
                 <tr>
                     <th>Puntos</th>
@@ -100,7 +100,7 @@
 
             <table>
                 <tr>
-                    <th colspan="11">de tiros</th>
+                    <th colspan="11">Media de tiros</th>
                 </tr>
                 <tr>
                     <th>Tiros de tres lanzados</th>

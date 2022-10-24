@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Sacramento } from 'src/app/interfaces/players.interface';
+import { Distintivo } from 'src/app/interfaces/players.interface';
 import { Africa } from 'src/app/interfaces/team-list.interface';
 import { ListadoEquiposService } from 'src/app/services/listado-equipos.service';
 import { PlayersListService } from 'src/app/services/players-list.service';
@@ -11,10 +11,11 @@ import { PlayersListService } from 'src/app/services/players-list.service';
 })
 export class PlayersListComponent implements OnInit {
 
-  playerList: Sacramento[] = [];
+  playerList: Distintivo[] = [];
   teamList: Africa[] = [];
   yearList: number[] = []
   year: number = 0;
+  nombreApellido = ''
 
   constructor(private playerService: PlayersListService, private teamService: ListadoEquiposService) { }
 
@@ -30,12 +31,12 @@ export class PlayersListComponent implements OnInit {
       this.teamList = resp.league.standard;
     })
 
-    for(let i = 1; i < 13; i++){
+    for(let i = 1; i < 8; i++){
       this.yearList.push(this.year - i);
     }
   }
 
-  getPhotoUrl(player: Sacramento){
+  getPhotoUrl(player: Distintivo){
     return `https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${player.personId}.png`;
   }
 

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { PlayersResponse,Sacramento} from '../interfaces/players.interface';
+import { PlayersResponse} from '../interfaces/players.interface';
 import { ProfileResponse } from '../interfaces/profile.interface';
 
 @Injectable({
