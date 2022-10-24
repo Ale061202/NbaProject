@@ -13,6 +13,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { TeamDetailsComponent } from './components/team-details/team-details.component';
 import { IndexPageComponent } from './components/index-page/index-page.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { IndexPageComponent } from './components/index-page/index-page.component
     TeamsComponent,
     PlayersListComponent,
     TeamDetailsComponent,
-    IndexPageComponent
+    IndexPageComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
