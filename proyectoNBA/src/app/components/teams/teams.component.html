@@ -1,39 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Equipos</title>
-  </head>
-  <body>
-    <div class="soporte" fxLayout="column" fxLayoutAlign="space-around center">
-      <div class="columna">
-        <a href="https://iplogger.com/2gNss3" target="_blank">
-          <img src="https://alicante.salesianos.edu/wp-content/uploads/2017/08/logo_salesianos.png" alt="">
-        </a>
-      </div>
-      <div class="marcador" fxLayout="column" fxLayoutAlign="space-around center">
-        <section id="slideshow">
-          <div class="entire-content">
-            <div class="content-carrousel">
-              <figure [class]="getConference(team)?'este' : 'oeste'" *ngFor="let team of equiposMarcador">
-                <img [src]="'https://cdn.nba.com/logos/nba/'+team.teamId+'/global/L/logo.svg'"/>
-              </figure>
-            </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Equipos</title>
+</head>
+
+<body>
+  <div class="soporte" fxLayout="column" fxLayoutAlign="space-around center">
+    <div class="columna">
+      <div class="amarre"></div>
+      <div class="amarre"></div>
+    </div>
+    <div class="marcador" fxLayout="column" fxLayoutAlign="space-around center">
+      <section id="slideshow">
+        <div class="entire-content">
+          <div class="content-carrousel">
+            <figure [class]="getConference(team)?'este' : 'oeste'" *ngFor="let team of equiposMarcador">
+              <a href="" [routerLink]="'/team/details/'+anho+'/'+team.teamId" href=""><img [src]="'https://cdn.nba.com/logos/nba/'+team.teamId+'/global/L/logo.svg'" onerror="this.src='https://static.vecteezy.com/system/resources/previews/003/348/586/non_2x/error-404-with-the-cute-basketball-mascot-free-vector.jpg'"/></a>
+            </figure>
           </div>
-        </section>
-        <div class="leyenda" fxLayout="row" fxLayoutAlign="space-around center">
-          <div fxLayout="row" fxLayoutAlign="space-around center">
-            <p>Conferencia Este</p>
-            <div id="eBox"></div>
-          </div>
-          <div fxLayout="row" fxLayoutAlign="space-around center">
-            <p>Conferencia Oeste</p>
-            <div id="wBox"></div>
-          </div>
+        </div>
+      </section>
+      <div class="leyenda" fxLayout="row" fxLayoutAlign="space-around center">
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+          <p>Conferencia Este</p>
+          <div id="eBox"></div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+          <p>Conferencia Oeste</p>
+          <div id="wBox"></div>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+  <div id="separador">
+    <hr>
+  </div>
+  <div class="container" fxLayout="row" fxLayoutAlign="space-around center">
+    <mat-tab-group class="paginacion">
+      <mat-tab label="Equipos">
+        <div class="contenido">
+          <p>
+            Aqui podras consultar el el listado de todos los equipos que han pasado por la NBA en los ultimos Años. <br>
+            <br>
+            Selecciona en el siguiente desplegable un año para mostras los equipos de la respectiva temporada: <br>
+            <br>
+          </p>
+          <mat-form-field appearance="fill">
+            <mat-label>Año de la temporada</mat-label>
+            <mat-select name="food">
+              <mat-option *ngFor="let anho of anhosVisualizar" [value]="anho" (click)="getTeamsYear(anho)">
+                {{anho}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br>
+          <div class="card-container" fxLayout="row wrap" fxLayoutAlign="space-around">
+            <div *ngFor="let item of equiposLiga">
+              <mat-card class="example-card">
+                <mat-card-title-group>
+                  <mat-card-title>{{item.fullName}}</mat-card-title>
+                  <mat-card-subtitle style="margin-top: 18px;">
+                    <a id="ver-detalles" [routerLink]="'/team/details/'+anho+'/'+item.teamId" href="">Ver detalles <div id="flecha-enlace">➤</div></a>
+                  </mat-card-subtitle>
+                  <img mat-card-sm-image [src]="'https://cdn.nba.com/logos/nba/'+item.teamId+'/global/L/logo.svg'" onerror="this.src='https://static.vecteezy.com/system/resources/previews/003/348/586/non_2x/error-404-with-the-cute-basketball-mascot-free-vector.jpg'">
+                </mat-card-title-group>
+                <mat-card-content>
+                  {{item.city}}
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Pretemporada">
+        <div class="contenido">
+          <p>Los equipos de pretemporada de cada año se muestran en esta pestaña</p>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>Año de la temporada</mat-label>
+            <mat-select name="food">
+              <mat-option *ngFor="let anho of anhosVisualizar" [value]="anho" (click)="getTeamsYear(anho)">
+                {{anho}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br>
+          <div class="card-container" fxLayout="row wrap" fxLayoutAlign="space-around">
+            <div *ngFor="let item of equiposLiga">
+              <mat-card class="example-card" *ngIf="item.divName == ''">
+                <mat-card-title-group>
+                  <mat-card-title>{{item.fullName}}</mat-card-title>
+                  <mat-card-subtitle style="margin-top: 18px;">
+                    <a id="ver-detalles" [routerLink]="'/team/details/'+anho+'/'+item.teamId" href="">Ver detalles <div id="flecha-enlace">➤</div></a>
+                  </mat-card-subtitle>
+                  <img mat-card-sm-image [src]="'https://cdn.nba.com/logos/nba/'+item.teamId+'/global/L/logo.svg'" onerror="this.src='https://static.vecteezy.com/system/resources/previews/003/348/586/non_2x/error-404-with-the-cute-basketball-mascot-free-vector.jpg'">
+                </mat-card-title-group>
+                <mat-card-content>
+                  {{item.city}}
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="AllStar">
+        <div class="contenido">
+          <p>En esta pestaña podras encontrar los equipos del AllStar</p>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>Año de la temporada</mat-label>
+            <mat-select name="food">
+              <mat-option *ngFor="let anho of anhosVisualizar" [value]="anho" (click)="getTeamsYear(anho)">
+                {{anho}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br>
+          <div class="card-container" fxLayout="row wrap" fxLayoutAlign="space-around">
+            <div *ngFor="let item of equiposLiga">
+              <mat-card class="example-card" *ngIf="item.isAllStar">
+                <mat-card-title-group>
+                  <mat-card-title>{{item.fullName}}</mat-card-title>
+                  <mat-card-subtitle style="margin-top: 18px;">
+                    <a id="ver-detalles" [routerLink]="'/team/details/'+anho+'/'+item.teamId" href="">Ver detalles <div id="flecha-enlace">➤</div></a>
+                  </mat-card-subtitle>
+                  <img mat-card-sm-image [src]="'https://cdn.nba.com/logos/nba/'+item.teamId+'/global/L/logo.svg'" onerror="this.src='https://static.vecteezy.com/system/resources/previews/003/348/586/non_2x/error-404-with-the-cute-basketball-mascot-free-vector.jpg'">
+                </mat-card-title-group>
+                <mat-card-content>
+                  {{item.city}}
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</body>
+
 </html>

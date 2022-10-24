@@ -11,6 +11,9 @@ import { MaterialImportsModule } from './modules/material-imports.module';
 import { DetailPlayersComponent } from './components/detail-players/detail-players.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
+import { TeamDetailsComponent } from './components/team-details/team-details.component';
+import { IndexPageComponent } from './components/index-page/index-page.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,10 @@ import { FormsModule } from '@angular/forms';
     PlayersListComponent,
     DetailPlayersComponent,
     TeamsComponent,
+    PlayersListComponent,
+    TeamDetailsComponent,
+    IndexPageComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +33,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     MaterialImportsModule,
     FlexLayoutModule,
-    FormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,75 @@
+html,
+body {
+    width: 100%;
+    height: max-content;
+}
+
+.header {
+    width: 100%;
+    height: 175px;
+    background-image: url(https://cdn.nba.com/teams/legacy/www.nba.com/suns/sites/suns/files/story-header_0.jpg);
+    position: relative;
+    padding-top: 75px;
+    background-size: cover;
+}
+
+.header img{
+    border: 10px solid white;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.header img {
+    display: block;
+    margin: auto;
+    height: 100px;
+}
+
+.contenido {
+    width: 90%;
+    margin: auto;
+}
+
+.tabla {
+    width: 100%;
+}
+
+.tabla:nth-child(odd) {
+    background: rgb(181, 181, 181);
+}
+
+.tabla img {
+    width: 35px;
+}
+
+.tabla th,
+td {
+    width: 60px;
+    text-align: center;
+}
+
+.tabla th {
+    font-weight: 500;
+    background: dodgerblue;
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.tabla {
+    border-collapse: collapse;
+}
+
+tr:nth-child(odd) {
+    background: rgb(199, 199, 199);
+}
+
+tr:hover, tr:nth-child(odd):hover{
+    background: rgb(192, 224, 255);
+}
+
+.tabla a {
+    color: black;
+}
