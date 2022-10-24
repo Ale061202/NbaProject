@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Distintivo } from 'src/app/interfaces/players.interface';
+import { Distintivos } from 'src/app/interfaces/players.interface';
 import { Africa } from 'src/app/interfaces/team-list.interface';
 import { ListadoEquiposService } from 'src/app/services/listado-equipos.service';
 import { PlayersListService } from 'src/app/services/players-list.service';
@@ -11,10 +11,10 @@ import { PlayersListService } from 'src/app/services/players-list.service';
 })
 export class PlayersListComponent implements OnInit {
 
-  playerList: Distintivo[] = [];
-  filterCountryList: Distintivo[] = [];
-  filterNameList: Distintivo[] = [];
-  filterPlayerList: Distintivo[] = [];
+  playerList: Distintivos[] = [];
+  filterCountryList: Distintivos[] = [];
+  filterNameList: Distintivos[] = [];
+  filterPlayerList: Distintivos[] = [];
   teamList: Africa[] = [];
   yearList: number[] = []
   year: number = 0;
@@ -42,7 +42,8 @@ export class PlayersListComponent implements OnInit {
     }
   }
 
-  getPhotoUrl(player: Distintivo){
+
+  getPhotoUrl(player: Distintivos){
     return `https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${player.personId}.png`;
   }
 
@@ -53,7 +54,7 @@ export class PlayersListComponent implements OnInit {
   }
 
   findCountry(){
-    let lista: Distintivo[] = [];
+    let lista: Distintivos[] = [];
     for(let player of this.playerList){
       for(let country of this.filterCountryList){
         if(player.personId == country.personId){
@@ -69,7 +70,7 @@ export class PlayersListComponent implements OnInit {
   }
 
   findName(){
-    let lista2: Distintivo[] = [];
+    let lista2: Distintivos[] = [];
     for(let player2 of this.playerList){
       for(let playerName of this.filterNameList){
         if(player2.personId == playerName.personId){

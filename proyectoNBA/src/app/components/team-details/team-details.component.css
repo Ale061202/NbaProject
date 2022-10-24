@@ -1,0 +1,93 @@
+body,
+html {
+    width: 100%;
+    height: max-content;
+}
+
+body {
+    background: #fff;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.container {
+    width: 100%;
+}
+
+header {
+    width: 100%;
+    height: 300px;
+    background-image: url(https://images.unsplash.com/photo-1552984418-b55abf780dd4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGZpbmFsZXMlMjBkZSUyMGxhJTIwbmJhfGVufDB8fDB8fA%3D%3D&w=1000&q=80);
+    background-size: cover;
+}
+
+header img {
+    width: 200px;
+}
+
+header h1 {
+    color: #fff;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: rgba(30, 143, 255, 0.361);
+    text-shadow: 1px 1px 2px black;
+    margin: 25px;
+}
+
+.menu {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    height: 20%;
+    color: white;
+    background-color: dodgerblue;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+.menu img {
+    width: 50px;
+}
+
+.cabeza-fixed {
+    width: 100%;
+    height: 80%;
+}
+
+.AllStar {
+    background: rgb(200, 170, 40);
+}
+
+.example-card {
+    width: 300px;
+    height: 100px;
+    margin: 20px;
+}
+
+.example-card img{
+    width: 100px;
+}
+
+.container-card{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap
+}
+
+#buscador{
+    width: 200px;
+    height: 20px;
+    border: 0;
+    border-bottom: 2px solid rgb(108, 181, 255);
+    transition:all 0.3s;
+}
+
+#buscador:focus{
+    background: rgb(221, 221, 221);
+    border-bottom: 2px solid dodgerblue;
+    outline: none;
+}
