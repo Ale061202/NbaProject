@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Sacramento } from 'src/app/interfaces/players.interface';
+import { Distintivos } from 'src/app/interfaces/players.interface';
 import { CareerSummary } from 'src/app/interfaces/profile.interface';
 import { Africa } from 'src/app/interfaces/team-list.interface';
 import { ListadoEquiposService } from 'src/app/services/listado-equipos.service';
@@ -14,9 +14,9 @@ import { PlayersListService } from 'src/app/services/players-list.service';
 export class DetailPlayersComponent implements OnInit {
 
   id: string = '';
-  player: Sacramento = {} as Sacramento;
+  player: Distintivos = {} as Distintivos;
   summary: CareerSummary = {} as CareerSummary;
-  playerList: Sacramento[] = [];
+  playerList: Distintivos[] = [];
   teamList: Africa[] = [];
   teamPlayed: string[] = [];
   teamDraft: string = '';
@@ -72,7 +72,7 @@ export class DetailPlayersComponent implements OnInit {
     }
   } 
 
-  getPhotoUrl(player: Sacramento){
+  getPhotoUrl(player: Distintivos){
     return `https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${player.personId}.png`;
   }
 }

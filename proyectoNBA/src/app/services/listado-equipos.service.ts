@@ -12,6 +12,6 @@ export class ListadoEquiposService {
   constructor(private http: HttpClient) { }
 
   public getTeams(anho : number) : Observable <TeamResponse>{
-    return this.http.get<TeamResponse>(`${environment.appiBaseUrl}/${anho}/teams.json`)
+    return this.http.get<TeamResponse>(`${environment.apiBaseUrl}/${anho}/teams.json`)
   }
 }
