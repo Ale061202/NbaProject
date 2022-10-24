@@ -91,11 +91,3 @@ header h1 {
     border-bottom: 2px solid dodgerblue;
     outline: none;
 }
-
-@media screen and (max-width: 1921px) {
-    .example-card {
-        width: 300px;
-        height: 100px;
-        margin: 50px;
-    }
-}
