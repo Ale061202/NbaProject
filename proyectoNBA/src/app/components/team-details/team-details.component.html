@@ -22,7 +22,7 @@
             <p>Division: {{equipo.divName}}</p>
         </div>
         <main  class="container-card">
-            <div  style="width: 100%; margin-top: 20px;"><input type="text" name="" id="buscador" placeholder="Buscar jugador" [(ngModel)]="nombreApellido" style="margin: auto; display: block;"></div>
+            <div  style="width: 100%; margin-top: 20px;"><input type="search" name="" id="buscador" placeholder="Buscar jugador" [(ngModel)]="nombreApellido" style="margin: auto; display: block;"></div>
             <div *ngFor="let player of jugadores">
                 <mat-card class="example-card" *ngIf="player.teamId == equipo.teamId && (player.firstName.toLowerCase().includes(nombreApellido.toLowerCase()) || player.lastName.toLowerCase().includes(nombreApellido.toLowerCase()) || (player.firstName + ' ' + player.lastName).toLowerCase().includes(nombreApellido.toLowerCase()))">
                     <mat-card-title-group>
