@@ -29,6 +29,7 @@
                         <mat-card-title>{{player.firstName}} {{player.lastName}}</mat-card-title>
                         <mat-card-subtitle>Height: {{player.heightMeters}}</mat-card-subtitle>
                         <img [src]="'https://cdn.nba.com/headshots/nba/latest/1040x760/'+player.personId+'.png'" alt="" onerror="this.src='https://i.ibb.co/xS8L4fy/donmiguel.png'">
+                        <button mat-button [routerLink]="['/detail', player.personId, year]">Detalles</button>
                     </mat-card-title-group>
                 </mat-card>
             </div>

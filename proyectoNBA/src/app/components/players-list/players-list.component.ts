@@ -11,14 +11,15 @@ import { PlayersListService } from 'src/app/services/players-list.service';
 })
 export class PlayersListComponent implements OnInit {
 
+  paises: Distintivos[] = [];
+  pais: string[] = [];
+
   playerList: Distintivos[] = [];
   filterCountryList: Distintivos[] = [];
-  filterNameList: Distintivos[] = [];
   filterPlayerList: Distintivos[] = [];
   teamList: Africa[] = [];
   yearList: number[] = []
   year: number = 0;
-  nombreApellido = ''
 
   constructor(private playerService: PlayersListService, private teamService: ListadoEquiposService) { }
 
@@ -29,7 +30,6 @@ export class PlayersListComponent implements OnInit {
     this.playerService.playersList(this.year).subscribe(resp => {
       this.playerList = resp.league.standard;
       this.filterCountryList = this.playerList;
-      this.filterNameList = this.playerList;
       this.filterPlayerList = this.playerList;
     })
 
@@ -42,6 +42,22 @@ export class PlayersListComponent implements OnInit {
     }
   }
 
+  findCountries(){
+    let lista2: string[] = [];
+    for(let player of this.playerList){
+      for(let country of this.paises){
+        if(player.country == country.country){
+          lista2.push(player.country)
+        }
+      }
+    }
+    if(lista2.length == 0){
+      this.paises = this.playerList;
+    }else {
+      this.pais = lista2;
+    }
+  }
+
 
   getPhotoUrl(player: Distintivos){
     return `https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${player.personId}.png`;
@@ -51,37 +67,5 @@ export class PlayersListComponent implements OnInit {
     this.playerService.playersList(this.year).subscribe(resp => {
       this.playerList = resp.league.standard;
     })
-  }
-
-  findCountry(){
-    let lista: Distintivos[] = [];
-    for(let player of this.playerList){
-      for(let country of this.filterCountryList){
-        if(player.personId == country.personId){
-          lista.push(player);
-        }
-      }
-    }
-    if(lista.length == 0){
-      this.filterPlayerList = this.playerList;
-    }else{
-      this.filterPlayerList = lista;
-    }
-  }
-
-  findName(){
-    let lista2: Distintivos[] = [];
-    for(let player2 of this.playerList){
-      for(let playerName of this.filterNameList){
-        if(player2.personId == playerName.personId){
-          lista2.push(player2);
-        }
-      }
-    }
-    if(lista2.length == 0){
-      this.filterNameList = this.playerList;
-    }else{
-      this.filterNameList = lista2;
-    }
   }
 }
