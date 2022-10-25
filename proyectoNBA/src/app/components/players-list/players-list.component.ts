@@ -11,12 +11,6 @@ import { PlayersListService } from 'src/app/services/players-list.service';
 })
 export class PlayersListComponent implements OnInit {
 
-  /*paises: Distintivos[] = [];
-  pais: string[] = [];*/
-
-
-
-
   playerList: Distintivos[] = [];
   teamList: Africa[] = [];
   yearList: number[] = []
@@ -65,24 +59,6 @@ export class PlayersListComponent implements OnInit {
       return this.filteredPlayers;
     }
   }
-
-
-  /*findCountries(){
-    let lista2: string[] = [];
-    for(let player of this.playerList){
-      for(let country of this.paises){
-        if(player.country == country.country){
-          lista2.push(player.country)
-        }
-      }
-    }
-    if(lista2.length == 0){
-      this.paises = this.playerList;
-    }else {
-      this.pais = lista2;
-    }
-  }*/
-
 
   getPhotoUrl(player: Distintivos){
     return `https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${player.personId}.png`;
