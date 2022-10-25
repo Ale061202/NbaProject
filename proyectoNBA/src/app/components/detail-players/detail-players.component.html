@@ -10,13 +10,12 @@
     <div fxLayout="column" fxLayoutAlign="space-around center" fxFlex="100">
         <div fxLayout="row" fxLayoutAlign="start center" fxFlex="100">
             <div>
-                <img mat-card-image [src]="getPhotoUrl(player)" style="width: 150px;" alt="Player photo"
+                <img mat-card-image [src]="getPhotoUrl(player)" style="width: 500px;" alt="Player photo"
                   onerror="this.src='https://logospng.org/download/nba/logo-nba-256.png'" />
                 <h3>{{player.firstName}} {{player.lastName}}</h3>
             </div>
             <div>
                 <img mat-card-image [src]="'https://cdn.nba.com/logos/nba/'+player.teamId+'/global/L/logo.svg'" style="width: 50px;" onerror="this.src='https://logospng.org/download/nba/logo-nba-256.png'" alt="Team logo">
-                <p>Nombre : {{player.temporaryDisplayName}}</p>
                 <p>Peso : {{player.weightKilograms}} kg</p>
                 <p>Altura : {{player.heightMeters}} m</p>
                 <p>País : {{player.country}}</p>
