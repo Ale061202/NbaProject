@@ -1,7 +1,7 @@
 import { style } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Distintivos, Player } from 'src/app/interfaces/players.interface';
+import { Distintivos } from 'src/app/interfaces/players.interface';
 import { Africa } from 'src/app/interfaces/team-list.interface';
 import { ListadoEquiposService } from 'src/app/services/listado-equipos.service';
 import { PlayersListService } from 'src/app/services/players-list.service';
