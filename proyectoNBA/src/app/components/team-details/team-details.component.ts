@@ -17,6 +17,8 @@ export class TeamDetailsComponent implements OnInit {
   equipo : Africa = {} as Africa
   jugadores : Distintivos[] = []
   nombreApellido = ''
+  year: number = 0;
+  yearList: number[] = [];
 
   constructor(private serviceTeam: ListadoEquiposService, private router : Router, private playerService : PlayersListService) { }
 
@@ -30,7 +32,9 @@ export class TeamDetailsComponent implements OnInit {
       this.jugadores = resp.league.standard
     })
 
-    
+    for(let i = 1; i < 8; i++){
+      this.yearList.push(this.year - i);
+    }   
   }
 
   getUrlYear():number{
