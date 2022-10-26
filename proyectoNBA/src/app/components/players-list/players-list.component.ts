@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Distintivos } from 'src/app/interfaces/players.interface';
-import { Africa } from 'src/app/interfaces/team-list.interface';
-import { ListadoEquiposService } from 'src/app/services/listado-equipos.service';
 import { PlayersListService } from 'src/app/services/players-list.service';
 
 @Component({
@@ -12,13 +10,12 @@ import { PlayersListService } from 'src/app/services/players-list.service';
 export class PlayersListComponent implements OnInit {
 
   playerList: Distintivos[] = [];
-  teamList: Africa[] = [];
   yearList: number[] = []
   year: number = 0;
   _filterText: string = '';
   filteredPlayers: Distintivos[] = [];
 
-  constructor(private playerService: PlayersListService, private teamService: ListadoEquiposService) { }
+  constructor(private playerService: PlayersListService) { }
 
   ngOnInit(): void {
 
@@ -26,17 +23,12 @@ export class PlayersListComponent implements OnInit {
 
     this.playerService.playersList(this.year).subscribe(resp => {
       this.playerList = resp.league.standard;
-    })
-
-    this.teamService.getTeams(this.year).subscribe(resp => {
-      this.teamList = resp.league.standard;
+      this.filteredPlayers = this.playerList;
     })
 
     for(let i = 1; i < 8; i++){
       this.yearList.push(this.year - i);
     }
-
-    this.filteredPlayers = this.playerList;
   }
 
   get filterText(){
