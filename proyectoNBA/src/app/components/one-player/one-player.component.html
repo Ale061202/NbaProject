@@ -1,0 +1,14 @@
+<mat-card>
+    <img mat-card-image [src]="getPhotoUrl()" style="width: 150px;" alt="Player photo"
+        onerror="this.src='https://logospng.org/download/nba/logo-nba-256.png'"/>
+
+    <mat-card-content>
+        <h2>{{playerFirstName}} {{playerLastName}}</h2>
+        <h4>{{playerCountry}}</h4>
+        <img mat-card-image [src]="'https://cdn.nba.com/logos/nba/'+playerTeamId+'/global/L/logo.svg'" class="logo" style="width: 50px; " onerror="this.src='https://logospng.org/download/nba/logo-nba-256.png'"
+            alt="Team logo">
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button [routerLink]="['/detail', playerPersonId, year]">Detalles</button>
+    </mat-card-actions>
+</mat-card>
