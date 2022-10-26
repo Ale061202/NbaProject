@@ -1,0 +1,23 @@
+<mat-card class="example-card">
+  <mat-card-title-group>
+    <mat-card-title>{{ team.fullName }}</mat-card-title>
+    <mat-card-subtitle style="margin-top: 18px">
+      <a
+        id="ver-detalles"
+        [routerLink]="['/team/details/', year, team.teamId]"
+        >Ver detalles
+        <div id="flecha-enlace">➤</div></a
+      >
+    </mat-card-subtitle>
+    <img
+      mat-card-sm-image
+      [src]="
+        'https://cdn.nba.com/logos/nba/' + team.teamId + '/global/L/logo.svg'
+      "
+      onerror="this.src='https://static.vecteezy.com/system/resources/previews/003/348/586/non_2x/error-404-with-the-cute-basketball-mascot-free-vector.jpg'"
+    />
+  </mat-card-title-group>
+  <mat-card-content>
+    {{ team.city }}
+  </mat-card-content>
+</mat-card>

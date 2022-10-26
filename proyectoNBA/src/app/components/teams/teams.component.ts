@@ -21,6 +21,9 @@ export class TeamsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTeamsYear(2022)
+    this.anho.valueOf()
+
+    console.log(this.anho)
   }
 
   getTeamsYear(year : number){
@@ -53,6 +56,4 @@ export class TeamsComponent implements OnInit {
     }
     return false
   }
-
-
 }

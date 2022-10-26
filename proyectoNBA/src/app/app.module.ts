@@ -15,6 +15,7 @@ import { TeamDetailsComponent } from './components/team-details/team-details.com
 import { IndexPageComponent } from './components/index-page/index-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { FilterPipe } from './pipes/pipe.pipe';
+import { OneTeamComponent } from './components/one-team/one-team.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FilterPipe } from './pipes/pipe.pipe';
     TeamDetailsComponent,
     IndexPageComponent,
     PageNotFoundComponent,
-    FilterPipe
+    FilterPipe,
+    OneTeamComponent
   ],
   imports: [
     BrowserModule,

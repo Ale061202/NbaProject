@@ -1,0 +1,37 @@
+.example-card {
+  width: 315px;
+  height: 125px;
+  margin: 0 10px 15px 10px;
+}
+
+.example-card-2 {
+  display: none;
+}
+
+.card-container {
+  width: 100%;
+}
+
+#ver-detalles {
+  color: #3b444b;
+  font-weight: 500;
+  transition: all 0.5s;
+  text-decoration: none;
+  display: flex;
+}
+
+#ver-detalles div {
+  transition: all 0.5s;
+  width: min-content;
+  margin-left: 5px;
+}
+
+#ver-detalles:hover div {
+  color: #3b444b;
+  transform: rotateX(360deg);
+}
+
+#flecha-enlace {
+  color: white;
+  margin: 0;
+}
