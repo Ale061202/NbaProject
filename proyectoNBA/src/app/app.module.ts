@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { TeamDetailsComponent } from './components/team-details/team-details.component';
 import { IndexPageComponent } from './components/index-page/index-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { FilterPipe } from './pipes/pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     PlayersListComponent,
     TeamDetailsComponent,
     IndexPageComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

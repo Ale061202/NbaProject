@@ -11,15 +11,12 @@ import { PlayersListService } from 'src/app/services/players-list.service';
 })
 export class PlayersListComponent implements OnInit {
 
-  paises: Distintivos[] = [];
-  pais: string[] = [];
-
   playerList: Distintivos[] = [];
-  filterCountryList: Distintivos[] = [];
-  filterPlayerList: Distintivos[] = [];
   teamList: Africa[] = [];
   yearList: number[] = []
   year: number = 0;
+  _filterText: string = '';
+  filteredPlayers: Distintivos[] = [];
 
   constructor(private playerService: PlayersListService, private teamService: ListadoEquiposService) { }
 
@@ -29,8 +26,6 @@ export class PlayersListComponent implements OnInit {
 
     this.playerService.playersList(this.year).subscribe(resp => {
       this.playerList = resp.league.standard;
-      this.filterCountryList = this.playerList;
-      this.filterPlayerList = this.playerList;
     })
 
     this.teamService.getTeams(this.year).subscribe(resp => {
@@ -40,24 +35,30 @@ export class PlayersListComponent implements OnInit {
     for(let i = 1; i < 8; i++){
       this.yearList.push(this.year - i);
     }
+
+    this.filteredPlayers = this.playerList;
   }
 
-  findCountries(){
-    let lista2: string[] = [];
-    for(let player of this.playerList){
-      for(let country of this.paises){
-        if(player.country == country.country){
-          lista2.push(player.country)
-        }
-      }
-    }
-    if(lista2.length == 0){
-      this.paises = this.playerList;
-    }else {
-      this.pais = lista2;
-    }
+  get filterText(){
+    return this._filterText;
   }
 
+  set filterText(valor: string){
+    this._filterText = valor;
+    this.filteredPlayers = this.filterPLayersByFirstName(valor);
+  }
+
+  filterPLayersByFirstName(filterTerm: string){
+    console.log(filterTerm)
+    if(this.playerList.length === 0 || this.filterText === ''){
+      return this.playerList;
+    } else {
+      this.filteredPlayers = this.playerList.filter(player => {
+        return player.country.toLowerCase().includes(filterTerm.toLowerCase());
+      })
+      return this.filteredPlayers;
+    }
+  }
 
   getPhotoUrl(player: Distintivos){
     return `https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${player.personId}.png`;
