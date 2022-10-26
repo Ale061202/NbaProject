@@ -9,3 +9,40 @@ En este proyecto hemos usado una API de la NBA en la que hemos implementado vari
 Alejandro Fernandez Gomez-Caminero: https://github.com/Ale061202
 
 Víctor González Carro: https://github.com/gcvictor22
+
+# Menu principal:
+
+Podras ir al menu de jugadores y equipos
+
+<img src="./proyectoNBA/src/app/img/menuprincipal.png"/>
+
+
+# Equipos
+
+Puedes seleccionar el año desde 2016 para ver los equipos
+
+<img src="./proyectoNBA/src/app/img/menuequipos.png"/>
+
+# Detalles equipos
+
+Puedras ver detalles del equipo y buscar por nombre o apellido el nombre de estos
+
+<img src="./proyectoNBA/src/app/img/Buscarjugadoresenequipo.png"/>
+
+# Jugadores
+
+Aqui encontraras todos los jugadores y podras filtrar por año y por nombre del país
+
+<img src="./proyectoNBA/src/app/img/Buscarjugadores.png"/>
+
+# Detalles jugador
+
+Se mostraran las estadísticas de cada jugador al hacer click en el botón que aparece bajo la tarjeta
+
+<img src="./proyectoNBA/src/app/img/Estadisticasjugador.png"/>
+
+# Clasificación
+
+Podras ver la clasificacion de 2019 aqui, mostrando los datos más relevantes de todos los equipos de la nba.
+
+<img src="./proyectoNBA/src/app/img/Tablaclasificacion.png"/>
